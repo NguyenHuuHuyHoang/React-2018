@@ -1,13 +1,48 @@
 import React, { Component } from "react";
-import './TableGalley.css'
+import "./TableGalley.css";
+import RowPicture from "./RowPicture";
 
 export default class TableGallery extends Component {
+  state = {
+    arrPictures: [
+      [
+        { id: 1, url: "http://bit.ly/3ayPusa", size: "larger" },
+        { id: 2, url: "http://bit.ly/3ayPusa", size: "larger" },
+        { id: 3, url: "http://bit.ly/3ayPusa", size: "larger" },
+      ],
+      [
+        { id: 4, url: "http://bit.ly/3ayPusa", size: "larger" },
+        { id: 5, url: "http://bit.ly/3ayPusa", size: "larger" },
+        { id: 6, url: "http://bit.ly/3ayPusa", size: "larger" },
+      ],
+      [
+        { id: 7, url: "http://bit.ly/3ayPusa", size: "larger" },
+        { id: 8, url: "http://bit.ly/3ayPusa", size: "larger" },
+        { id: 9, url: "http://bit.ly/3ayPusa", size: "larger" },
+      ],
+    ],
+  };
 
-    imageWidth = 'larger';
-
-    changedSizeImage = () => {
-        return this.imageWidth = 'tiny';
+  ChangeSizePicture = (id) => {
+    let arrPicturesUpdate = [...this.state.arrPictures];
+    var rowIndex = 0;
+    let itemIndex = 0;
+    for (let row of arrPicturesUpdate) {
+      if (row.findIndex((Picture) => Picture.id === id) !== -1) {
+        itemIndex = row.findIndex((Picture) => Picture.id === id);
+        break;
+      }
+      rowIndex++;
     }
+
+    arrPicturesUpdate[rowIndex][itemIndex].size =
+      arrPicturesUpdate[rowIndex][itemIndex].size === "larger"
+        ? "tiny"
+        : "larger";
+    this.setState({
+      arrPictures: arrPicturesUpdate,
+    });
+  };
 
   render() {
     return (
@@ -22,18 +57,10 @@ export default class TableGallery extends Component {
             </tr>
           </thead>
           <tbody>
-          <tr>
-        <td>
-          <img className={this.imageWidth} src="http://bit.ly/3ayPusa" onClick={this.changedSizeImage()} alt="Image 1"/>
-        </td>
-        <td>
-          <img src="http://bit.ly/3ayPusa" alt="Image 1"  style={{width: "200px"}}/>
-        </td>
-        <td>
-          <img src="http://bit.ly/3ayPusa" alt="Image 1"  style={{width: "200px"}}/>
-        </td>
-      </tr>
-
+            <RowPicture
+              arrPictures={this.state.arrPictures}
+              ChangeSizePicture={this.ChangeSizePicture}
+            />
           </tbody>
         </table>
       </div>
