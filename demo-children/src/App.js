@@ -1,14 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Accordion from './component/Accordion';
+import React from "react";
+
+import "./App.css";
+import Accordion from "./component/Accordion";
+import CompletedReport from "./component/CompletedReport";
 
 function App() {
   return (
     <div className="App">
-      <Accordion heading="Hello" >
+      {/* <Accordion heading="Hello" >
         dasgdflgdfhlvxlcvjxcklsdf
-      </Accordion>
+      </Accordion> */}
+      <CompletedReport />
     </div>
   );
 }

@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.viewReport {
+  border-radius: 50px;
+}
+
+.viewAll {
+  border: 1px solid #AAA
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: orange;
+  width: 75px;
+  height: 75px;
+}
