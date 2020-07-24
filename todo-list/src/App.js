@@ -24,7 +24,7 @@ function App() {
         todoItem.map((item,index)=> 
         <TodoItem key={index} item={item}/>)
       } */}
-      <BT2StepNumber/>
+      {/* <BT2StepNumber/> */}
       {/* <BT1Button /> */}
       {/* <TodoItem title="Đi chợ" objectToDo={{name: "Đi ngủ"}}/> */}
       {/* <Login /> */}
